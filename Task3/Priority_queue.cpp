@@ -3,7 +3,6 @@
 using namespace std;
 
 template<class T>
-
 class Priority_queue {
 private:
     vector<T>arr;
@@ -69,10 +68,13 @@ public :
         arr[0] = arr[--size];
         heapfiy_down(0);
    }
-    int top(){
-        assert(size);
-        return arr[0];
-   }
+     T extractHighestPrio(){
+        assert(size>=1);
+        int mx = arr[0];
+        arr[0] = arr[--size];
+        heapfiy_down(0);
+        return mx;
+    }
     bool isempty() {
         return size == 0;
     }
@@ -95,9 +97,7 @@ int main (){
     pq.push(555);
     pq.push(12323);
     // Getting the highest priority
-    cout << pq.top() << endl;
-    // Poping
-    pq.pop();
-    cout << pq.top();
+    cout << "The highest priority: "<< pq.extractHighestPrio() << endl;
+    cout <<"The Second highest priority: " << pq.extractHighestPrio();
 
 }
