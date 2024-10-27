@@ -84,7 +84,7 @@ public:
         assert(size);
         return arr[0];
     }
-    int Get_min(){
+    int Extract_min(){
         assert(size>=1);
         int mn = INT16_MAX;
         for (auto it : arr){
@@ -92,9 +92,11 @@ public:
         }
         return mn;
     }
-    int Get_max(){
+    int Extract_max(){
         assert(size>=1);
-        return arr[0];
+        int maxVal = arr[0];
+        this.pop();
+        return maxVal;
     }
     // void build_maxheap(vector<int>& Arr){
     //     for (int i = size / 2 - 1; i >= 0 ; i--){
@@ -144,7 +146,8 @@ int main() {
     heap.push(100);
     heap.push(4);
 
-    cout << "Max Element = " << heap.Get_max ()<< "\n" << "Min Element = "<< heap.Get_min()<< endl; 
+    cout << "Max Element = " << heap.Extract_max ()<< "\n";
+    // << "Min Element = "<< heap.Get_min()<< endl; 
     cout << endl;
 
     return 0;

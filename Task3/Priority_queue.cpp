@@ -69,7 +69,7 @@ public :
         arr[0] = arr[--size];
         heapfiy_down(0);
    }
-    int Get_HighestPriority(){
+    int top(){
         assert(size);
         return arr[0];
    }
@@ -94,10 +94,10 @@ int main (){
     pq.push(13);
     pq.push(555);
     pq.push(12323);
-    // Extracting
-    cout << pq.Get_HighestPriority() << endl;
+    // Getting the highest priority
+    cout << pq.top() << endl;
     // Poping
     pq.pop();
-    cout << pq.Get_HighestPriority();
+    cout << pq.top();
 
 }
